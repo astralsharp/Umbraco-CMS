@@ -168,5 +168,10 @@ internal sealed class ImportPackageBuilderExpression : MigrationExpressionBase
 
             Logger.LogInformation($"Package migration executed. Summary: {installationSummary}");
         }
+        else if (PackageDataManifest != null)
+        {
+            installationSummary = _packagingService.InstallCompiledPackageData(PackageDataManifest);
+            Logger.LogInformation($"Package migration executed. Summary: {installationSummary}");
+        }
     }
 }
